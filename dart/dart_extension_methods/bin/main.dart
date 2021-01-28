@@ -7,10 +7,13 @@ extension StringExtentions on String {
   String get toEuro {
     return '$this€';
   }
+
+  String operator &(String other) =>  '$this $other';
 }
 
 void main() {
   print("It's me!".isValidEmail);
   print('email@sadra.at'.isValidEmail);
   print('10'.toEuro);
+  print('me'&'you');
 }
