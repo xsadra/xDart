@@ -9,6 +9,10 @@ extension StringExtentions on String {
   }
 
   String operator &(String other) =>  '$this $other';
+
+  String join(String other) {
+    return '$this $other';
+  }
 }
 
 void main() {
@@ -16,4 +20,5 @@ void main() {
   print('email@sadra.at'.isValidEmail);
   print('10'.toEuro);
   print('me'&'you');
+  print('me'.join('you'));
 }
