@@ -8,17 +8,23 @@ extension StringExtentions on String {
     return '$this€';
   }
 
-  String operator &(String other) =>  '$this $other';
+  String operator &(String other) => '$this $other';
 
   String join(String other) {
     return '$this $other';
   }
 }
 
+extension NumGenericExtentions<T extends num> on T {
+  String get toEuro => '$this€';
+}
+
 void main() {
   print("It's me!".isValidEmail);
   print('email@sadra.at'.isValidEmail);
   print('10'.toEuro);
-  print('me'&'you');
+  print('me' & 'you');
   print('me'.join('you'));
+  print(10.toEuro);
+  print(10.5.toEuro);
 }
