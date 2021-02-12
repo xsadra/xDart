@@ -1,0 +1,21 @@
+name: routes_navigation_ongenerate
+description: Flutter Routes & Navigation – Parameters, Named Routes, onGenerateRoute
+homepage: https://sadra.at
+version: 1.0.0+1
+#repository: https://github.com/<user>/<repository>
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
