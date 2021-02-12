@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:routes_navigation_ongenerate/route_generator.dart';
 
 class FirstPage extends StatelessWidget {
   @override
@@ -20,7 +21,7 @@ class FirstPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/second',
+                Navigator.of(context).pushNamed(Routes.secondPage,
                     arguments: 'This data come from First Page!');
               },
               child: Text(
@@ -34,6 +35,7 @@ class FirstPage extends StatelessWidget {
             SizedBox(height: 55.0),
             ElevatedButton(
               onPressed: () {
+                // now by using [Routes] cannot route to an unknown route!
                 Navigator.of(context).pushNamed('/other',
                     arguments: 'This data come from First Page!');
               },

@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Routes & Navigation",
-      initialRoute: '/',
+      initialRoute: Routes.firstPage,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }

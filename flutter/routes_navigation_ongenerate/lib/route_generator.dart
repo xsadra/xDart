@@ -7,9 +7,9 @@ class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
-      case '/':
+      case Routes.firstPage:
         return MaterialPageRoute(builder: (_) => FirstPage());
-      case '/second':
+      case Routes.secondPage:
         if (args is String) {
           return MaterialPageRoute(builder: (_) => SecondPage(data: args));
         }
@@ -42,4 +42,10 @@ class RouteGenerator {
       ),
     );
   }
+}
+
+class Routes{
+  static const String firstPage = '/';
+  static const String secondPage = '/second';
+  Routes._();
 }
