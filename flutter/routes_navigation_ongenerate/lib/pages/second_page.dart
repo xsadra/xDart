@@ -22,11 +22,14 @@ class SecondPage extends StatelessWidget {
                 color: Colors.blue,
               ),
             ),
-            Text(
-              "Go to Second Page",
-              style: TextStyle(
-                fontSize: 33.0,
-                color: Colors.green,
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                data,
+                style: TextStyle(
+                  fontSize: 24.0,
+                  color: Colors.green,
+                ),
               ),
             ),
           ],

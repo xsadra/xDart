@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:routes_navigation_ongenerate/pages/first_page.dart';
+
+import 'route_generator.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Routes & Navigation",
-      home: FirstPage(),
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

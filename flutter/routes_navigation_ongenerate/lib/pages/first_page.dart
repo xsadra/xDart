@@ -19,12 +19,29 @@ class FirstPage extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/second',
+                    arguments: 'This data come from First Page!');
+              },
               child: Text(
                 "Go to Second Page",
                 style: TextStyle(
                   fontSize: 33.0,
                   color: Colors.white,
+                ),
+              ),
+            ),
+            SizedBox(height: 55.0),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/other',
+                    arguments: 'This data come from First Page!');
+              },
+              child: Text(
+                "Break the Route",
+                style: TextStyle(
+                  fontSize: 33.0,
+                  color: Colors.grey,
                 ),
               ),
             ),
