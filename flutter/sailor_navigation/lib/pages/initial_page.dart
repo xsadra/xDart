@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
+import '../routes.dart';
 import 'third_page.dart';
 
 class InitialPage extends StatelessWidget {
@@ -16,12 +16,12 @@ class InitialPage extends StatelessWidget {
           children: [
             ElevatedButton(
               child: const Text('Go to SECOND'),
-              onPressed: () => navigateToSecond(context),
+              onPressed: () => navigateToSecond(),
             ),
             const SizedBox(height: 12.0),
             ElevatedButton(
               child: const Text('Go to THIRD'),
-              onPressed: () async => navigateToThird(context),
+              onPressed: () => navigateToThird(),
             ),
           ],
         ),
@@ -30,13 +30,15 @@ class InitialPage extends StatelessWidget {
   }
 
   // 4- use sailor navigate
-  void navigateToThird(BuildContext context) async {
-    Routes.sailor.navigate(RoutePaths.ThirdPage,
-        args: ThirdPageArgs(name: 'Sara', age: 11));
+  void navigateToThird() {
+    Routes.sailor.navigate(
+      RoutePaths.ThirdPage,
+      args: ThirdPageArgs(name: 'Sara', age: 17),
+    );
   }
 
   // 4.1- use sailor navigate
-  void navigateToSecond(BuildContext context) {
+  void navigateToSecond() {
     Routes.sailor.navigate(
       RoutePaths.secondPage,
       params: {'name': 'Sadra', 'age': 26},
