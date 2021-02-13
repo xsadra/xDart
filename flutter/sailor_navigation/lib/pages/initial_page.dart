@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sailor/sailor.dart';
 
 import '../routes.dart';
 import 'third_page.dart';
@@ -42,6 +43,10 @@ class InitialPage extends StatelessWidget {
     Routes.sailor.navigate(
       RoutePaths.secondPage,
       params: {'name': 'Sadra', 'age': 26},
+      transitions: [
+        SailorTransition.fade_in,
+        SailorTransition.slide_from_left,
+      ],
     );
   }
 }
