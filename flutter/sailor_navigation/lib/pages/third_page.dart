@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sailor/sailor.dart';
 
-class ThirdPageArgs {
+// 1.2 extend args from sailor BaseArguments
+class ThirdPageArgs extends BaseArguments {
   final String name;
   final int age;
 
