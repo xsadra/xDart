@@ -7,18 +7,21 @@ import 'pages/third_page.dart';
 // 1- add Routes to sailor
 class Routes {
   static final sailor = Sailor();
+  static const String initialPage = '/initial';
+  static const String secondPage = '/second';
+  static const String thirdPage = '/third';
 
   static void createRoutes() {
     sailor.addRoutes([
       SailorRoute(
-        name: RoutePaths.initialPage,
+        name: Routes.initialPage,
         builder: (context, args, paramMap) {
           return InitialPage();
         },
       ),
       // !not recommended to use paramMap
       SailorRoute(
-        name: RoutePaths.secondPage,
+        name: Routes.secondPage,
         builder: (context, args, paramMap) {
           return SecondPage(
             name: paramMap.param<String>('name'),
@@ -33,7 +36,7 @@ class Routes {
       ),
       // *recommended to use args
       SailorRoute(
-        name: RoutePaths.ThirdPage,
+        name: Routes.thirdPage,
         builder: (context, args, _) => ThirdPage(args: args),
       ),
     ]);
@@ -41,10 +44,4 @@ class Routes {
 }
 
 // 1.1- use Statics instead of String
-class RoutePaths {
-  static const String initialPage = '/initial';
-  static const String secondPage = '/second';
-  static const String ThirdPage = '/third';
-
-  RoutePaths._();
-}
+//REFACTORED

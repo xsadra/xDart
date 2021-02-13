@@ -33,7 +33,7 @@ class InitialPage extends StatelessWidget {
   // 4- use sailor navigate
   void navigateToThird() {
     Routes.sailor.navigate(
-      RoutePaths.ThirdPage,
+      Routes.thirdPage,
       args: ThirdPageArgs(name: 'Sara', age: 17),
     );
   }
@@ -41,7 +41,7 @@ class InitialPage extends StatelessWidget {
   // 4.1- use sailor navigate
   void navigateToSecond() {
     Routes.sailor.navigate(
-      RoutePaths.secondPage,
+      Routes.secondPage,
       params: {'name': 'Sadra', 'age': 26},
       transitions: [
         SailorTransition.fade_in,
