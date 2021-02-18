@@ -57,7 +57,10 @@
  * {} : features.number_trivia.domain.usecases> GetConcreteNumberTrivia
  *
  * ++<> core.usecases> UseCase
+ * * Start TDD ...
  *
+ * {T} : features.number_trivia.domain.usecases> GetRandomNumberTriviaTest
+ * {} : features.number_trivia.domain.usecases> GetRandomNumberTrivia
  *
  *
  *
