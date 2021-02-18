@@ -7,6 +7,7 @@
  ! {n} : entity class
  ! [T] : test package
  ! {T} : test class
+ ! {TF} : test file
  !
  * */
 
@@ -53,15 +54,19 @@
  * ++[T] core
  * ++[T] core.error
  *
- * {T} : features.number_trivia.domain.usecases> GetConcreteNumberTriviaTest
- * {} : features.number_trivia.domain.usecases> GetConcreteNumberTrivia
+ * ++{T} : features.number_trivia.domain.usecases> GetConcreteNumberTriviaTest
+ * ++{} : features.number_trivia.domain.usecases> GetConcreteNumberTrivia
  *
  * ++<> core.usecases> UseCase
  * * Start TDD ...
  *
- * {T} : features.number_trivia.domain.usecases> GetRandomNumberTriviaTest
- * {} : features.number_trivia.domain.usecases> GetRandomNumberTrivia
+ * ++{T} : features.number_trivia.domain.usecases> GetRandomNumberTriviaTest
+ * ++{} : features.number_trivia.domain.usecases> GetRandomNumberTrivia
  *
+ * ++[T] fixture
+ *
+ * ++{TF} : fixture> trivia.json
+ * ++{TF} : fixture> trivia_double.json
  *
  *
  *
