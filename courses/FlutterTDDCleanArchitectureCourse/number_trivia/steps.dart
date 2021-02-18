@@ -29,6 +29,7 @@
  * ++[] features.number_trivia.presentation.widgets
  * ++[] core
  * ++[] core.error
+ * ++[] core.usecases
  *
  * ++<> core.error> Failures
  * ++{n} features.number_trivia.domain.entities> NumberTrivia
@@ -55,6 +56,7 @@
  * {T} : features.number_trivia.domain.usecases> GetConcreteNumberTriviaTest
  * {} : features.number_trivia.domain.usecases> GetConcreteNumberTrivia
  *
+ * ++<> core.usecases> UseCase
  *
  *
  *
