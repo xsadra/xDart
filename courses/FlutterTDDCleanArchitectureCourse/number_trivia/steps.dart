@@ -54,21 +54,29 @@
  * ++[T] core
  * ++[T] core.error
  *
- * ++{T} : features.number_trivia.domain.usecases> GetConcreteNumberTriviaTest
- * ++{} : features.number_trivia.domain.usecases> GetConcreteNumberTrivia
+ * ++{T} features.number_trivia.domain.usecases> GetConcreteNumberTriviaTest
+ * ++{} features.number_trivia.domain.usecases> GetConcreteNumberTrivia
  *
  * ++<> core.usecases> UseCase
  * * Start TDD ...
  *
- * ++{T} : features.number_trivia.domain.usecases> GetRandomNumberTriviaTest
- * ++{} : features.number_trivia.domain.usecases> GetRandomNumberTrivia
+ * ++{T} features.number_trivia.domain.usecases> GetRandomNumberTriviaTest
+ * ++{} features.number_trivia.domain.usecases> GetRandomNumberTrivia
  *
  * ++[T] fixture
  *
- * ++{TF} : fixture> trivia.json
- * ++{TF} : fixture> trivia_double.json
+ * ++{TF} fixture> trivia.json
+ * ++{TF} fixture> trivia_double.json
  *
+ * ++{t} features.number_trivia.data.repositories> NumberTriviaRepositoryImplTest
+ * ++{} features.number_trivia.data.repositories> NumberTriviaRepositoryImpl
  *
+ * ++{} core.error> exceptions.dart
+ * ++[] core.platform
+ * ++{} core.platform> NetworkInfo
+ *
+ * ++{} features.number_trivia.data.datasources> NumberTriviaLocalDataSource
+ * ++{} features.number_trivia.data.datasources> NumberTriviaRemoteDataSource
  *
  *
  *
