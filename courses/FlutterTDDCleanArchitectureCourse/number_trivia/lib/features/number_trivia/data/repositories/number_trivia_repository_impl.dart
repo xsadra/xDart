@@ -23,7 +23,15 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   Future<Either<Failure, NumberTrivia>> getConcreteNumberTrivia(
     int number,
   ) async {
-    networkInfo.isConnected;
+    if (!await networkInfo.isConnected) {
+      try {
+        final localTrivia = await localDataSource.getLastNumberTrivia();
+        return Right(localTrivia);
+      } on CacheException {
+        return Left(CacheFailure());
+      }
+    }
+
     try {
       final remoteTrivia =
           await remoteDataSource.getConcreteNumberTrivia(number);
