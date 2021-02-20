@@ -43,4 +43,20 @@ void main() {
       },
     );
   });
+
+  group('toJson', () {
+    test(
+      'should return a Json containing the proper Data',
+      () async {
+        // act
+        final result = tNumberTriviaModel.toJson();
+        // assert
+        final matcherMap = {
+          "text": "Some text",
+          "number": 1,
+        };
+        expect(result, matcherMap);
+      },
+    );
+  });
 }
