@@ -1,6 +1,7 @@
 /**
  ! ++ : Create
  ! -- : Delete
+ ! R : Refactor
  ! [] : package
  ! {} : class
  ! <> : abstract class
@@ -78,7 +79,7 @@
  * ++{} features.number_trivia.data.datasources> NumberTriviaLocalDataSource
  * ++{} features.number_trivia.data.datasources> NumberTriviaRemoteDataSource
  *
- *
+ *  R[] core.platform > core.network
  *
  *
  *
