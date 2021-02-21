@@ -97,6 +97,8 @@
  * ++{T} core.util> InputConverterTest
  * ++{} core.util> InputConverter
  *
+ * ++{T} features.number_trivia.presentation.bloc> NumberTriviaBloc
+ * ++{} core.error> FailureExtension
  *
  *
  *

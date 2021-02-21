@@ -6,7 +6,7 @@ class NumberTrivia extends Equatable {
   final int number;
 
   NumberTrivia({
-    @required this.text,
     @required this.number,
+    @required this.text,
   }) : super([text, number]);
 }

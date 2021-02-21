@@ -6,10 +6,10 @@ abstract class NumberTriviaEvent extends Equatable {
   NumberTriviaEvent([List props = const <dynamic>[]]) : super(props);
 }
 
-class CetTriviaForConcreteNumber extends NumberTriviaEvent {
+class GetTriviaForConcreteNumber extends NumberTriviaEvent {
   final String numberString;
 
-  CetTriviaForConcreteNumber(this.numberString) : super([numberString]);
+  GetTriviaForConcreteNumber(this.numberString) : super([numberString]);
 }
 
-class CetTriviaForRandomNumber extends NumberTriviaEvent {}
+class GetTriviaForRandomNumber extends NumberTriviaEvent {}
