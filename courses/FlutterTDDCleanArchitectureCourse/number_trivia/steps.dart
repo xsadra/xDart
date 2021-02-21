@@ -92,6 +92,10 @@
  * ++{} features.number_trivia.presentation.bloc> NumberTriviaEvent
  * ++{} features.number_trivia.presentation.bloc> NumberTriviaState
  *
+ * ++[] core.util
+ * ++[T] core.util
+ * ++{T} core.util> InputConverterTest
+ * ++{} core.util> InputConverter
  *
  *
  *
