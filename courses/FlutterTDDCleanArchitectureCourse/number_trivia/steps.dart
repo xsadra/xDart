@@ -59,7 +59,7 @@
  * ++{} features.number_trivia.domain.usecases> GetConcreteNumberTrivia
  *
  * ++<> core.usecases> UseCase
- * * Start TDD ...
+ * ?Start TDD ...
  *
  * ++{T} features.number_trivia.domain.usecases> GetRandomNumberTriviaTest
  * ++{} features.number_trivia.domain.usecases> GetRandomNumberTrivia
@@ -81,12 +81,16 @@
  *
  *  R[] core.platform > core.network
  *
- *
  * ++{t} features.number_trivia.data.datasources> NumberTriviaLocalDataSourceImplTest
  *
  * ++{TF} fixture> trivia_cached.json
  *
  * ++{t} features.number_trivia.data.datasources> NumberTriviaRemoteDataSourceImplTest
+ *
+ * ++{} features.number_trivia.presentation.bloc> bloc.dart
+ * ++{} features.number_trivia.presentation.bloc> NumberTriviaBloc
+ * ++{} features.number_trivia.presentation.bloc> NumberTriviaEvent
+ * ++{} features.number_trivia.presentation.bloc> NumberTriviaState
  *
  *
  *
