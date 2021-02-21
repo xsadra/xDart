@@ -5,3 +5,11 @@ import 'package:meta/meta.dart';
 abstract class NumberTriviaEvent extends Equatable {
   NumberTriviaEvent([List props = const <dynamic>[]]) : super(props);
 }
+
+class CetTriviaForConcreteNumber extends NumberTriviaEvent {
+  final String numberString;
+
+  CetTriviaForConcreteNumber(this.numberString) : super([numberString]);
+}
+
+class CetTriviaForRandomNumber extends NumberTriviaEvent {}
