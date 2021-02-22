@@ -103,8 +103,10 @@
  * ++[] .> init
  *
  * ++{} features.number_trivia.presentation.pages> NumberTriviaPage
- *
- *
- *
+ * ++{} features.number_trivia.presentation.widgets> LoadingWidget
+ * ++{} features.number_trivia.presentation.widgets> MessageDisplay
+ * ++{} features.number_trivia.presentation.widgets> TriviaControls
+ * ++{} features.number_trivia.presentation.widgets> TriviaDisplay
+ * ++{} features.number_trivia.presentation.widgets> widgets.dart
  *
  * */
