@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
+import 'package:notes/injection.dart';
 
 void main() {
+  configureDependencies(env: Environment.prod);
   runApp(NotesApp());
 }
 
@@ -11,12 +14,10 @@ class NotesApp extends StatelessWidget {
       title: 'Notes',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Notes'),
+          title: const Text('Notes'),
         ),
-        body: Center(
-          child: Container(
-            child: Text('Notes App'),
-          ),
+        body: const Center(
+          child: Text('Notes App'),
         ),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:injectable/injectable.dart';
 import 'package:notes/domain/auth/auth_failure.dart';
 import 'package:notes/domain/auth/i_auth_facade.dart';
 import 'package:notes/domain/auth/value_objects.dart';
@@ -10,6 +11,7 @@ import 'package:notes/domain/auth/value_objects.dart';
 //? Step 14: Add [firebase_core, firebase_auth, google_sign_in] to pubspec
 //? Step 15: Add firebase plugins and dependencies build.gradle [project, app level]
 //? Step 18: Implements IAuthFacade and use FirebaseAuth and GoogleSignIn
+@LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
@@ -66,7 +68,7 @@ class FirebaseAuthFacade implements IAuthFacade {
     try {
       final googleUser = await _googleSignIn.signIn();
       if (googleUser == null) {
-        return left(AuthFailure.cancelledByUser());
+        return left(const AuthFailure.cancelledByUser());
       }
 
       final googleAuthentication = await googleUser.authentication;
