@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:notes/domain/auth/auth_failure.dart';
+import 'package:notes/domain/auth/user.dart';
 import 'package:notes/domain/auth/value_objects.dart';
 
 // * Use [Unit] class instead of [void] keyword
@@ -18,4 +19,9 @@ abstract class IAuthFacade {
   });
 
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
+
+  //? Step 32: add [getSignInUser, signOut] to [IAuthFacade] contract in domain layer
+  Future<Option<User>> getSignInUser();
+
+  Future<void> signOut();
 }

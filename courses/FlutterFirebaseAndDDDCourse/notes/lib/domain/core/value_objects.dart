@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:notes/domain/core/errors.dart';
 import 'package:notes/domain/core/failures.dart';
+import 'package:uuid/uuid.dart';
 
 abstract class ValueObject<T> {
   const ValueObject();
@@ -31,4 +32,26 @@ abstract class ValueObject<T> {
 
   @override
   int get hashCode => value.hashCode;
+}
+
+//? Step 29: create [UniqueId] extends of [ValueObject] to set a contract to get UserId
+//? Step 30: use [Uuid] class from package [uuid] to generate a unique user id
+class UniqueId extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory UniqueId() {
+    return UniqueId._(
+      right(Uuid().v1()),
+    );
+  }
+
+  factory UniqueId.fromUniqueString(String uniqueId) {
+    assert(uniqueId != null);
+    return UniqueId._(
+      right(uniqueId),
+    );
+  }
+
+  const UniqueId._(this.value);
 }

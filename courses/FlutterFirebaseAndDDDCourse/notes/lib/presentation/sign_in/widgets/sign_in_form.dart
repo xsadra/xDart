@@ -129,7 +129,7 @@ class SignInForm extends StatelessWidget {
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnackBar(
       BuildContext context, String message) {
-    return ScaffoldMessenger.of(context).showSnackBar(
+    return Scaffold.of(context).showSnackBar(
       SnackBar(content: Text(message)),
     );
   }

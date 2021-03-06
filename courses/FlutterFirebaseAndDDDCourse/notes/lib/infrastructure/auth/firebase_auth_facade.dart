@@ -6,7 +6,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:notes/domain/auth/auth_failure.dart';
 import 'package:notes/domain/auth/i_auth_facade.dart';
+import 'package:notes/domain/auth/user.dart';
 import 'package:notes/domain/auth/value_objects.dart';
+
+import 'firebase_user_mapper.dart';
 
 //? Step 14: Add [firebase_core, firebase_auth, google_sign_in] to pubspec
 //? Step 15: Add firebase plugins and dependencies build.gradle [project, app level]
@@ -84,5 +87,19 @@ class FirebaseAuthFacade implements IAuthFacade {
     } on PlatformException catch (_) {
       return left(const AuthFailure.serverError());
     }
+  }
+
+  //? Step 34: implement [getSignInUser, signOut]
+  @override
+  Future<Option<User>> getSignInUser() => _firebaseAuth
+      .currentUser()
+      .then((firebaseUser) => optionOf(firebaseUser?.toDomain()));
+// * use [return Future.wait] instead of [async + await] for signOuts
+  @override
+  Future<void> signOut() {
+    return Future.wait([
+      _googleSignIn.signOut(),
+      _firebaseAuth.signOut(),
+    ]);
   }
 }
