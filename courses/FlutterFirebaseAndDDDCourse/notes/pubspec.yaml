@@ -10,13 +10,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dartz: "^0.9.0-dev.6"
+  dartz: "^0.9.0"
   freezed_annotation: ^0.12.0
-  flutter_bloc: "^3.2.0"
+  flutter_bloc: "^4.0.0"
   firebase_core: "^0.4.4+3"
   firebase_auth: "^0.16.0"
-  google_sign_in: "^4.4.2"
-  get_it: ^4.0.1
+  google_sign_in: "^4.4.4"
+  get_it: ^4.0.2
   injectable: ^1.0.3
 
 dev_dependencies:
