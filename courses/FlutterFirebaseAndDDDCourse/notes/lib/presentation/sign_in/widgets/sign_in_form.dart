@@ -33,6 +33,7 @@ class SignInForm extends StatelessWidget {
       builder: (context, state) => Form(
         autovalidate: state.showErrorMessages,
         child: ListView(
+          padding: const EdgeInsets.all(12.0),
           children: [
             const Icon(
               Icons.sticky_note_2_outlined,
@@ -121,6 +122,10 @@ class SignInForm extends StatelessWidget {
               ),
               child: const Text('Sign In with Google'),
             ),
+            if (state.isSubmitting) ...[
+              const SizedBox(height: 8),
+              const LinearProgressIndicator(),
+            ]
           ],
         ),
       ),
