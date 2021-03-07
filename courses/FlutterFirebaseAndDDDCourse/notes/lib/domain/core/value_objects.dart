@@ -18,6 +18,14 @@ abstract class ValueObject<T> {
     // (left) => throw UnexpectedValueError(left), (right) => right);
   }
 
+  //? Step 46: add [failureOrUnit] getter to [ValueObject] on domain to check the failure
+  Either<ValueFailure<dynamic>, Unit> get failureOrUnit {
+    return value.fold(
+      (l) => left(l),
+      (r) => right(unit),
+    );
+  }
+
   @override
   String toString() {
     return 'Value{$value}';

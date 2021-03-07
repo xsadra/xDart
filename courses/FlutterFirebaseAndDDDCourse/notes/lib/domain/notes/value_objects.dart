@@ -48,7 +48,7 @@ class TodoName extends ValueObject<String> {
   const TodoName._(this.value);
 }
 
-class TodoColor extends ValueObject<Color> {
+class NoteColor extends ValueObject<Color> {
   @override
   final Either<ValueFailure<Color>, Color> value;
   static const List<Color> predefinedColors = [
@@ -62,14 +62,14 @@ class TodoColor extends ValueObject<Color> {
     Colors.yellowAccent,
   ];
 
-  factory TodoColor(Color input) {
+  factory NoteColor(Color input) {
     assert(input != null);
-    return TodoColor._(
+    return NoteColor._(
       right(makeColorOpaque(input)),
     );
   }
 
-  const TodoColor._(this.value);
+  const NoteColor._(this.value);
 }
 
 class List3<T> extends ValueObject<KtList<T>> {
