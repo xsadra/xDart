@@ -14,7 +14,7 @@ part 'sign_in_form_event.dart';
 part 'sign_in_form_state.dart';
 
 //? Step 9: add bloc to pubspec
-//? Step 10: Generate bloC using bloc generator
+//? Step 10: Generate [SignInFormBloc] bloC using bloc generator
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _authFacade;
