@@ -12,7 +12,7 @@ abstract class TodoItem implements _$TodoItem {
     @required UniqueId id,
     @required TodoName name,
     @required bool done,
-  }) = todoItem;
+  }) = _TodoItem;
 
   factory TodoItem.empty() => TodoItem(
         id: UniqueId(),
