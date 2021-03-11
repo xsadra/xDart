@@ -11,3 +11,6 @@ class UnexpectedValueError extends Error {
     return Error.safeToString('$explanation Error: $valueFailure');
   }
 }
+
+//? Step 56: create a Error class to kill the app on getting firestore snapshots
+class NotAuthenticatedError extends Error {}

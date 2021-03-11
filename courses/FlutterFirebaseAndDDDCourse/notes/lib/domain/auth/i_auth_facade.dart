@@ -20,8 +20,8 @@ abstract class IAuthFacade {
 
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
 
-  //? Step 32: add [getSignInUser, signOut] to [IAuthFacade] contract in domain layer
-  Future<Option<User>> getSignInUser();
+  //? Step 32: add [getSignedInUser, signOut] to [IAuthFacade] contract in domain layer
+  Future<Option<User>> getSignedInUser();
 
   Future<void> signOut();
 }
