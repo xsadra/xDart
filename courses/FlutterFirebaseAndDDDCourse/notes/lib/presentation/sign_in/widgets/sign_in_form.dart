@@ -1,6 +1,9 @@
+import 'package:auto_route/auto_route.dart' as r;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes/application/auth/auth_bloc.dart';
 import 'package:notes/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:notes/presentation/routes/router.gr.dart';
 
 //? Step 27: create SignInForm
 //? Step 28: use [BlocConsumer] to setup form state
@@ -10,7 +13,7 @@ class SignInForm extends StatelessWidget {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
-          () => null,
+          () {},
           (either) => either.fold(
             (left) {
               showSnackBar(
@@ -24,8 +27,12 @@ class SignInForm extends StatelessWidget {
                 ),
               );
             },
-            (_) => {
-              // Navigate to home
+            //? Step 68: navigate to [SignInPage]
+            (_) {
+              r.ExtendedNavigator.of(context).push(Routes.signInPage);
+              context
+                  .bloc<AuthBloc>()
+                  .add(const AuthEvent.autoCheckRequested());
             },
           ),
         );

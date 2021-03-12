@@ -1,8 +1,8 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart' as r;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/application/auth/auth_bloc.dart';
-import 'package:notes/presentation/routes/router.gr.dart';
+import 'package:notes/presentation/routes/router.gr.dart' as r;
 
 //? Step 39: create [SplashPage] to set a Page on loading
 class SplashPage extends StatelessWidget {
@@ -12,9 +12,11 @@ class SplashPage extends StatelessWidget {
       listener: (context, state) {
         state.map(
           initial: (_) => throw UnimplementedError(),
-          authenticated: (_) => throw UnimplementedError(),
-          unauthenticated: (_) => ExtendedNavigator.of(context)
-              .pushReplacementNamed(Routes.signInPage),
+          //? Step 69: navigate to [NotesOverviewPage] on authenticated
+          authenticated: (_) =>
+              r.ExtendedNavigator.of(context).push(r.Routes.notesOverviewPage),
+          unauthenticated: (_) =>
+              r.ExtendedNavigator.of(context).push(r.Routes.signInPage),
         );
       },
       child: const Scaffold(
