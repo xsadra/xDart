@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/application/notes/note_watcher/note_watcher_bloc.dart';
 
+import 'critical_failure_display_widget.dart';
+import 'error_note_card_widget.dart';
+import 'note_card_widget.dart';
+
 //? Step 71: create [NoteOverviewBody] widget using [BlocBuilder] to get notes
+//? Step 74: use [NoteCard, ErrorNoteCard, CriticalFailureDisplay]
 class NoteOverviewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,13 +23,14 @@ class NoteOverviewBody extends StatelessWidget {
               itemBuilder: (context, index) {
                 final note = state.notes[index];
                 if (note.failureOption.isSome()) {
-                  return Container(color: Colors.yellowAccent, height: 100);
+                  return ErrorNoteCard(note: note);
                 }
-                return Container(color: Colors.green, height: 100);
+                return NoteCard(note: note);
               },
             );
           },
-          loadFailure: (state) => Container(color: Colors.red, height: 100),
+          loadFailure: (state) =>
+              CriticalFailureDisplay(failure: state.failure),
         );
       },
     );
