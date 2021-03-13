@@ -29,7 +29,7 @@ class SignInForm extends StatelessWidget {
             },
             //? Step 68: navigate to [SignInPage]
             (_) {
-              r.ExtendedNavigator.of(context).push(Routes.signInPage);
+              r.ExtendedNavigator.of(context).replace(Routes.signInPage);
               context
                   .bloc<AuthBloc>()
                   .add(const AuthEvent.autoCheckRequested());

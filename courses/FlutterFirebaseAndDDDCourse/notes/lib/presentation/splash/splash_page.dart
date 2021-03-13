@@ -13,10 +13,10 @@ class SplashPage extends StatelessWidget {
         state.map(
           initial: (_) => throw UnimplementedError(),
           //? Step 69: navigate to [NotesOverviewPage] on authenticated
-          authenticated: (_) =>
-              r.ExtendedNavigator.of(context).push(r.Routes.notesOverviewPage),
+          authenticated: (_) => r.ExtendedNavigator.of(context)
+              .replace(r.Routes.notesOverviewPage),
           unauthenticated: (_) =>
-              r.ExtendedNavigator.of(context).push(r.Routes.signInPage),
+              r.ExtendedNavigator.of(context).replace(r.Routes.signInPage),
         );
       },
       child: const Scaffold(
