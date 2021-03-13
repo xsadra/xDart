@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart' as r;
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/application/auth/auth_bloc.dart';
@@ -7,7 +7,7 @@ import 'package:notes/application/notes/note_watcher/note_watcher_bloc.dart';
 import 'package:notes/injection.dart';
 import 'package:notes/presentation/notes/notes_overview/widgets/note_overview_body_widgets.dart';
 import 'package:notes/presentation/notes/notes_overview/widgets/uncompleted_switch.dart';
-import 'package:notes/presentation/routes/router.gr.dart' as r;
+import 'package:notes/presentation/routes/router.gr.dart';
 
 //? Step 70: create [NotesOverviewPage] page
 class NotesOverviewPage extends StatelessWidget {
@@ -28,8 +28,8 @@ class NotesOverviewPage extends StatelessWidget {
           BlocListener<AuthBloc, AuthState>(
             listener: (context, state) {
               state.maybeMap(
-                unauthenticated: (_) => r.ExtendedNavigator.of(context)
-                    .replace(r.Routes.signInPage),
+                unauthenticated: (_) =>
+                    ExtendedNavigator.of(context).replace(Routes.signInPage),
                 orElse: () {},
               );
             },
@@ -69,7 +69,7 @@ class NotesOverviewPage extends StatelessWidget {
           body: NoteOverviewBody(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              throw UnimplementedError();
+              ExtendedNavigator.of(context).pushNoteFormPage(editedNote: null);
             },
             child: const Icon(Icons.add),
           ),

@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:notes/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:notes/domain/notes/note.dart';
 import 'package:notes/domain/notes/todo_item.dart';
+import 'package:notes/presentation/routes/router.gr.dart';
 
 //? Step 74: create [NoteCard] to show notes
 class NoteCard extends StatelessWidget {
@@ -19,7 +21,8 @@ class NoteCard extends StatelessWidget {
     return Card(
       color: note.color.getOrCrash(),
       child: InkWell(
-        onTap: () => throw UnimplementedError(),
+        onTap: () =>
+            ExtendedNavigator.of(context).pushNoteFormPage(editedNote: note),
         onLongPress: () {
           final noteActorBloc = context.bloc<NoteActorBloc>();
           _showDeletingDialog(context, noteActorBloc);
