@@ -6,6 +6,7 @@ import 'package:notes/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:notes/application/notes/note_watcher/note_watcher_bloc.dart';
 import 'package:notes/injection.dart';
 import 'package:notes/presentation/notes/notes_overview/widgets/note_overview_body_widgets.dart';
+import 'package:notes/presentation/notes/notes_overview/widgets/uncompleted_switch.dart';
 import 'package:notes/presentation/routes/router.gr.dart' as r;
 
 //? Step 70: create [NotesOverviewPage] page
@@ -62,10 +63,7 @@ class NotesOverviewPage extends StatelessWidget {
               },
             ),
             actions: [
-              IconButton(
-                icon: const Icon(Icons.indeterminate_check_box),
-                onPressed: () {},
-              ),
+              UncompletedSwitch(),
             ],
           ),
           body: NoteOverviewBody(),
