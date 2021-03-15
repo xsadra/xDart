@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:kt_dart/kt.dart';
 import 'package:notes/domain/core/value_objects.dart';
 import 'package:notes/domain/notes/todo_item.dart';
 import 'package:notes/domain/notes/value_objects.dart';
@@ -37,4 +39,9 @@ abstract class TodoItemPrimitive implements _$TodoItemPrimitive {
       done: done,
     );
   }
+}
+
+//? Step 81: create [FormTodos] as a [ValueNotifier] class to create a empty list of [TodoItemPrimitive]
+class FormTodos extends ValueNotifier<KtList<TodoItemPrimitive>> {
+  FormTodos() : super(emptyList<TodoItemPrimitive>());
 }

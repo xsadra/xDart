@@ -6,9 +6,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/application/notes/note_form/note_form_bloc.dart';
 import 'package:notes/domain/notes/note.dart';
 import 'package:notes/injection.dart';
-import 'package:notes/presentation/notes/note_form/widgets/body_field_widget.dart';
-import 'package:notes/presentation/notes/note_form/widgets/color_field_widget.dart';
 import 'package:notes/presentation/routes/router.gr.dart';
+import 'package:provider/provider.dart';
+
+import 'misc/todo_item_presentation_classes.dart';
+import 'widgets/add_todo_tile_widget.dart';
+import 'widgets/body_field_widget.dart';
+import 'widgets/color_field_widget.dart';
 
 //? Step 77: create [NoteFormPage] to create and edit a notes
 class NoteFormPage extends StatelessWidget {
@@ -139,17 +143,19 @@ class NoteFormScaffold extends StatelessWidget {
         ],
       ),
       //? Step 79: use [BodyField] in [NoteFormPage] as body
+      //? Step 82: use [ChangeNotifierProvider] to Creates a [FormTodos] ChangeNotifier
       body: BlocBuilder<NoteFormBloc, NoteFormState>(
         buildWhen: (previous, current) =>
             previous.showErrorMessages != current.showErrorMessages,
-        builder: (context, state) => Form(
-          child: SingleChildScrollView(
-            child: Form(
-              autovalidateMode: AutovalidateMode.always,
+        builder: (context, state) => ChangeNotifierProvider(
+          create: (_) => FormTodos(),
+          child: Form(
+            child: SingleChildScrollView(
               child: Column(
                 children: const [
                   BodyField(),
                   ColorField(),
+                  AddTodoTile(),
                 ],
               ),
             ),
