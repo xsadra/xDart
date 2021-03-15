@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:notes/domain/notes/i_note_repository.dart';
@@ -15,7 +15,7 @@ import 'package:rxdart/rxdart.dart';
 //? Step 63: implements [create, update, delete]
 @LazySingleton(as: INoteRepository)
 class NoteRepository implements INoteRepository {
-  final Firestore _firestore;
+  final FirebaseFirestore _firestore;
 
   NoteRepository(this._firestore);
 
@@ -25,11 +25,9 @@ class NoteRepository implements INoteRepository {
       final userDoc = await _firestore.userDocument();
       final noteDto = NoteDto.fromDomain(note);
 
-      await userDoc.noteCollection
-          .document(noteDto.id)
-          .setData(noteDto.toJson());
+      await userDoc.noteCollection.doc(noteDto.id).set(noteDto.toJson());
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.unableToUpdate());
       }
@@ -43,9 +41,9 @@ class NoteRepository implements INoteRepository {
       final userDoc = await _firestore.userDocument();
       final noteId = note.id.getOrCrash();
 
-      await userDoc.noteCollection.document(noteId).delete();
+      await userDoc.noteCollection.doc(noteId).delete();
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermission());
       } else if (e.message.contains('NOT_FOUND')) {
@@ -61,11 +59,9 @@ class NoteRepository implements INoteRepository {
       final userDoc = await _firestore.userDocument();
       final noteDto = NoteDto.fromDomain(note);
 
-      await userDoc.noteCollection
-          .document(noteDto.id)
-          .updateData(noteDto.toJson());
+      await userDoc.noteCollection.doc(noteDto.id).update(noteDto.toJson());
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermission());
       } else if (e.message.contains('NOT_FOUND')) {
@@ -84,13 +80,13 @@ class NoteRepository implements INoteRepository {
         .snapshots()
         .map(
           (snapshot) => right<NoteFailure, KtList<Note>>(
-            snapshot.documents
+            snapshot.docs
                 .map((document) => NoteDto.fromFirestore(document).toDomain())
                 .toImmutableList(),
           ),
         )
         .onErrorReturnWith((error) {
-      if (error is PlatformException &&
+      if (error is FirebaseAuthException &&
           error.message.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermission());
       }
@@ -105,7 +101,7 @@ class NoteRepository implements INoteRepository {
         .orderBy('serverTimeStamp', descending: true)
         .snapshots()
         .map(
-          (snapshot) => snapshot.documents
+          (snapshot) => snapshot.docs
               .map((document) => NoteDto.fromFirestore(document).toDomain()),
         )
         .map(
@@ -117,7 +113,7 @@ class NoteRepository implements INoteRepository {
           ),
         )
         .onErrorReturnWith((error) {
-      if (error is PlatformException &&
+      if (error is FirebaseAuthException &&
           error.message.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermission());
       }

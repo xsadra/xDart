@@ -15,7 +15,7 @@ class UncompletedSwitch extends HookWidget {
       child: InkResponse(
         onTap: () {
           toggleState.value = !toggleState.value;
-          context.bloc<NoteWatcherBloc>().add(
+          context.read<NoteWatcherBloc>().add(
                 toggleState.value
                     ? const NoteWatcherEvent.watchUncompletedStarted()
                     : const NoteWatcherEvent.watchAllStarted(),
