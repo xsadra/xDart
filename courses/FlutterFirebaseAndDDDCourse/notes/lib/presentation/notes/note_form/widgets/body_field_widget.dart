@@ -6,15 +6,17 @@ import 'package:notes/domain/notes/value_objects.dart';
 
 //? Step 78: create [BodyField] to create and edit a new note
 class BodyField extends HookWidget {
+  const BodyField({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final textEditingController = useTextEditingController();
 
     return BlocListener<NoteFormBloc, NoteFormState>(
-      // listenWhen: (previous, current) =>
-      //     previous.isEditing != current.isEditing,
+      listenWhen: (previous, current) =>
+          previous.isEditing != current.isEditing,
       listener: (BuildContext context, state) {
-        // textEditingController.text = state.note.body.getOrCrash();
+        textEditingController.text = state.note.body.getOrCrash();
       },
       child: Padding(
         padding: const EdgeInsets.all(10.0),

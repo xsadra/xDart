@@ -7,6 +7,7 @@ import 'package:notes/application/notes/note_form/note_form_bloc.dart';
 import 'package:notes/domain/notes/note.dart';
 import 'package:notes/injection.dart';
 import 'package:notes/presentation/notes/note_form/widgets/body_field_widget.dart';
+import 'package:notes/presentation/notes/note_form/widgets/color_field_widget.dart';
 import 'package:notes/presentation/routes/router.gr.dart';
 
 //? Step 77: create [NoteFormPage] to create and edit a notes
@@ -132,7 +133,7 @@ class NoteFormScaffold extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.save),
             onPressed: () {
-              context.bloc<NoteFormBloc>().add(const NoteFormEvent.saved());
+              context.read<NoteFormBloc>().add(const NoteFormEvent.saved());
             },
           )
         ],
@@ -146,8 +147,9 @@ class NoteFormScaffold extends StatelessWidget {
             child: Form(
               autovalidateMode: AutovalidateMode.always,
               child: Column(
-                children: [
+                children: const [
                   BodyField(),
+                  ColorField(),
                 ],
               ),
             ),

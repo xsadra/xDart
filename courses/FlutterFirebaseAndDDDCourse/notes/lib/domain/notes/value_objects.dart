@@ -52,14 +52,16 @@ class NoteColor extends ValueObject<Color> {
   @override
   final Either<ValueFailure<Color>, Color> value;
   static const List<Color> predefinedColors = [
-    Colors.white60,
-    Colors.deepPurple,
-    Colors.red,
-    Colors.indigo,
-    Colors.indigoAccent,
-    Colors.green,
-    Colors.amber,
-    Colors.yellowAccent,
+    Color(0xffcdcdcd),
+    Color(0xff895b88),
+    Color(0xff936ecb),
+    Color(0xffdc817a),
+    Color(0xff6d7ed2),
+    Color(0xff598497),
+    Color(0xff769052),
+    Color(0xff556d3a),
+    Color(0xff998c68),
+    Color(0xffffa200),
   ];
 
   factory NoteColor(Color input) {
