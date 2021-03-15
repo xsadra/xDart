@@ -52,7 +52,7 @@ class NoteColor extends ValueObject<Color> {
   @override
   final Either<ValueFailure<Color>, Color> value;
   static const List<Color> predefinedColors = [
-    Colors.black45,
+    Colors.white60,
     Colors.deepPurple,
     Colors.red,
     Colors.indigo,

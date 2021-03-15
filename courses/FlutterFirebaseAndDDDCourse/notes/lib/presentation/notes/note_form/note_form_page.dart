@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/application/notes/note_form/note_form_bloc.dart';
 import 'package:notes/domain/notes/note.dart';
 import 'package:notes/injection.dart';
+import 'package:notes/presentation/notes/note_form/widgets/body_field_widget.dart';
 import 'package:notes/presentation/routes/router.gr.dart';
 
 //? Step 77: create [NoteFormPage] to create and edit a notes
@@ -135,6 +136,23 @@ class NoteFormScaffold extends StatelessWidget {
             },
           )
         ],
+      ),
+      //? Step 79: use [BodyField] in [NoteFormPage] as body
+      body: BlocBuilder<NoteFormBloc, NoteFormState>(
+        buildWhen: (previous, current) =>
+            previous.showErrorMessages != current.showErrorMessages,
+        builder: (context, state) => Form(
+          child: SingleChildScrollView(
+            child: Form(
+              autovalidateMode: AutovalidateMode.always,
+              child: Column(
+                children: [
+                  BodyField(),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
