@@ -27,9 +27,9 @@ class SignInForm extends StatelessWidget {
                 ),
               );
             },
-            //? Step 68: navigate to [SignInPage]
+            //? Step 68: navigate to [NotesOverviewPage]
             (_) {
-              r.ExtendedNavigator.of(context).replace(Routes.signInPage);
+              r.ExtendedNavigator.of(context).replace(Routes.notesOverviewPage);
               context
                   .read<AuthBloc>()
                   .add(const AuthEvent.autoCheckRequested());

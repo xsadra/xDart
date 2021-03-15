@@ -12,6 +12,8 @@ part 'note_dtos.freezed.dart';
 part 'note_dtos.g.dart';
 
 //? Step 51: crate [NoteDto, TodoItemDto] data transfer objects
+//? Step 87: crate [build.yaml] config file to tell the Json serializable
+//? to convert nested lists [List<TodoItemDto>] correctly
 @freezed
 abstract class NoteDto implements _$NoteDto {
   const factory NoteDto({
