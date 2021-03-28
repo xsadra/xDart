@@ -1,0 +1,28 @@
+name: number_trivia
+description: Flutter TDD Clean Architecture Course
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.0
+  get_it: ^2.0.1
+  flutter_bloc: ^0.21.0
+  equatable: ^0.4.0
+  dartz: ^0.8.6
+  data_connection_checker: ^0.3.4
+  http: ^0.12.0+2
+  shared_preferences: ^0.5.3+4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mockito: ^4.1.0
+
+flutter:
+  uses-material-design: true
