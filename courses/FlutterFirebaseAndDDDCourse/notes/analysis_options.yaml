@@ -1,0 +1,9 @@
+include: package:lint/analysis_options.yaml
+
+#? Step 19: add [lint] to pubspec to setup warnings and errors in code
+#? Step 20: setup errors [missing_return, missing_required_param, must_be_immutable]
+analyzer:
+  errors:
+    missing_return: error
+    missing_required_param: error
+    must_be_immutable: error
